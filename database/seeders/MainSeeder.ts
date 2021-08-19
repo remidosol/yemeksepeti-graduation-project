@@ -236,7 +236,7 @@ export default class MainSeeder extends BaseSeeder {
         const randomfoodCount = faker.datatype.number({ min: 1, max: 5, precision: 1 })
 
         let order = await user.related('orders').create({
-          restaurantId: 1,
+          restaurantId: burgerKing.id,
           orderPaymentMethod: paymentMethods[randomPaymentId],
           orderNote: faker.lorem.sentence(5),
         })
@@ -260,7 +260,7 @@ export default class MainSeeder extends BaseSeeder {
         const randomfoodCount = faker.datatype.number({ min: 1, max: 5, precision: 1 })
 
         let order = await user.related('orders').create({
-          restaurantId: 1,
+          restaurantId: mcDonalds.id,
           orderPaymentMethod: paymentMethods[randomPaymentId],
           orderNote: faker.lorem.sentence(5),
         })
