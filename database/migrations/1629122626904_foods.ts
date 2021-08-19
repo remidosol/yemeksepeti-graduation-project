@@ -6,7 +6,7 @@ export default class Foods extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.integer('restaurantId').notNullable()
+      table.integer('restaurant_id').notNullable()
       table.string('name').notNullable()
       table.double('price').notNullable()
       table.string('image_url').notNullable()
