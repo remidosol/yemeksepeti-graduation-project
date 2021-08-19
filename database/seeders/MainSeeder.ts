@@ -243,7 +243,7 @@ export default class MainSeeder extends BaseSeeder {
 
         let totalPrice = 0
         for (let j = 0; j < randomfoodCount; j++) {
-          const randomBurgerId = faker.datatype.number({ min: 1, max: 12, precision: 1 })
+          const randomBurgerId = faker.datatype.number({ min: 0, max: 11, precision: 1 })
           const food = burgerKing.restaurantFoods[randomBurgerId]
           totalPrice += food.price
           await order.related('orderFoods').attach([randomBurgerId])
@@ -267,7 +267,7 @@ export default class MainSeeder extends BaseSeeder {
 
         let totalPrice = 0
         for (let j = 0; j < randomfoodCount; j++) {
-          const randomMcId = faker.datatype.number({ min: 1, max: 12, precision: 1 })
+          const randomMcId = faker.datatype.number({ min: 0, max: 11, precision: 1 })
           const food = mcDonalds.restaurantFoods[randomMcId]
           totalPrice += food.price
           await order.related('orderFoods').attach([randomMcId])
