@@ -15,6 +15,7 @@ export default class MainSeeder extends BaseSeeder {
       })
 
       await user.related('profile').create({
+        id: user.id,
         firstName: 'İbrahim',
         lastName: 'AKSÜT',
         mobileNumber: '+905301176240',
@@ -35,7 +36,6 @@ export default class MainSeeder extends BaseSeeder {
 
       await burgerKing.related('restaurantFoods').createMany([
         {
-          restaurantId: burgerKing.id,
           name: 'Double King Chicken Menu',
           price: 32.99,
           description:
@@ -44,7 +44,6 @@ export default class MainSeeder extends BaseSeeder {
             'https://www.burgerking.com.tr/cmsfiles/products/double-king-chicken-menu.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Whopper Jr. Menu',
           price: 28.5,
           description:
@@ -52,7 +51,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://www.burgerking.com.tr/cmsfiles/products/whopper-jr-menu.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Double Whopper Menu',
           price: 48.5,
           description:
@@ -61,7 +59,6 @@ export default class MainSeeder extends BaseSeeder {
             'https://www.burgerking.com.tr/cmsfiles/products/double-whopper-menu-1.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Triple Whopper Menu',
           price: 59.99,
           description:
@@ -70,7 +67,6 @@ export default class MainSeeder extends BaseSeeder {
             'https://www.burgerking.com.tr/cmsfiles/products/triple-whopper-menu-1.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Texas Smokehouse Menu',
           price: 44.99,
           description:
@@ -79,7 +75,6 @@ export default class MainSeeder extends BaseSeeder {
             'https://www.burgerking.com.tr/cmsfiles/products/texas-smokehouse-burger-menu-1.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Double Texas Smokehouse Menu',
           price: 54.99,
           description:
@@ -88,7 +83,6 @@ export default class MainSeeder extends BaseSeeder {
             'https://www.burgerking.com.tr/cmsfiles/products/double-texas-smokehouse-burger-menu-1.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Big King Jr. Menu',
           price: 28.5,
           description:
@@ -96,7 +90,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://www.burgerking.com.tr/cmsfiles/products/big-king-jr-menu-1.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Big King Menu',
           price: 34.5,
           description:
@@ -104,7 +97,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://www.burgerking.com.tr/cmsfiles/products/big-king-menu.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Double Big King Menu',
           price: 49.99,
           description:
@@ -113,7 +105,6 @@ export default class MainSeeder extends BaseSeeder {
             'https://www.burgerking.com.tr/cmsfiles/products/double-big-king-menu-1.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Big King XXL Menu',
           price: 51.99,
           description:
@@ -121,14 +112,12 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://www.burgerking.com.tr/cmsfiles/products/big-king-xxl-menu.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Coca-Cola (33 cl.)',
           price: 7.5,
           description: 'Coca-Cola',
           imageUrl: 'https://www.burgerking.com.tr/cmsfiles/products/coca-cola.png?v=173',
         },
         {
-          restaurantId: burgerKing.id,
           name: 'Sprite (33 cl.)',
           price: 7.5,
           description: 'Sprite',
@@ -145,7 +134,6 @@ export default class MainSeeder extends BaseSeeder {
 
       await mcDonalds.related('restaurantFoods').createMany([
         {
-          restaurantId: mcDonalds.id,
           name: 'Big Mac Menu',
           description:
             'Çift katlı, dana etinden peynir ve sosla olan muhteşem uyumuna soğan, taze marul ve turşunun da katılması, ona olan tutkunuzu açıklayabilir mi?',
@@ -153,7 +141,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://siparis.mcdonalds.com.tr/Files/All/Menuler/bigmacmenu.png',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'Double Big Mac Menu',
           price: 51.5,
           description:
@@ -162,7 +149,6 @@ export default class MainSeeder extends BaseSeeder {
             'https://siparis.mcdonalds.com.tr/Files/All/Menuler/1b54b963-21ce-4d4d-8a2a-2731923196ac-urunler-400x4006-5-1-.jpg',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'McChicken Menu',
           price: 31.5,
           description:
@@ -170,7 +156,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://siparis.mcdonalds.com.tr/Files/All/Menuler/mcchickenmenu.png',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'Double McChicken Menu',
           price: 36.5,
           description:
@@ -178,7 +163,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://siparis.mcdonalds.com.tr/Files/All/Menuler/doublechickenmenu.png',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'Double Cheeseburger Menu',
           price: 37.99,
           description:
@@ -186,7 +170,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://siparis.mcdonalds.com.tr/Files/All/Menuler/doublecheeseburgermenu.png',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'Quarter Pounder Menu',
           price: 41.99,
           description:
@@ -194,7 +177,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://siparis.mcdonalds.com.tr/Files/All/Menuler/quarterpoundermenu.png',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'Double Quarter Pounder Menu',
           price: 49.99,
           description:
@@ -203,7 +185,6 @@ export default class MainSeeder extends BaseSeeder {
             'https://siparis.mcdonalds.com.tr/Files/All/Menuler/doublequarterpoundermenu.png',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'McRoyal Menu',
           price: 44.99,
           description:
@@ -211,7 +192,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://siparis.mcdonalds.com.tr/Files/All/Menuler/mcroyalmenu.png',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'Daba Daba Burger Menu',
           price: 34.99,
           description:
@@ -219,7 +199,6 @@ export default class MainSeeder extends BaseSeeder {
           imageUrl: 'https://siparis.mcdonalds.com.tr/Files/All/Menuler/dabadababurgermenu.png',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'Hamburger Menu',
           price: 28.5,
           description: 'Hamburger Menü (Büyük)',
@@ -227,20 +206,21 @@ export default class MainSeeder extends BaseSeeder {
             'https://siparis.mcdonalds.com.tr/Files//59e1f32e-0688-443f-bfc0-9f56998c40c4-hamburger-menu.png',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'Coca-Cola (33 cl.)',
           price: 7.5,
           description: 'Coca-Cola',
           imageUrl: 'https://www.burgerking.com.tr/cmsfiles/products/coca-cola.png?v=173',
         },
         {
-          restaurantId: mcDonalds.id,
           name: 'Sprite (33 cl.)',
           price: 7.5,
           description: 'Sprite',
           imageUrl: 'https://www.burgerking.com.tr/cmsfiles/products/coca-cola.png?v=173',
         },
       ])
+
+      await user.save()
+      await user.refresh()
 
       const paymentMethods = [
         PaymentMethods.CASH,
@@ -249,6 +229,8 @@ export default class MainSeeder extends BaseSeeder {
         PaymentMethods.WALLET,
       ]
 
+      await burgerKing.load('restaurantFoods')
+      await mcDonalds.load('restaurantFoods')
       for (let i = 0; i < 5; i++) {
         const randomPaymentId = faker.datatype.number({ min: 0, max: 3, precision: 1 })
         const randomfoodCount = faker.datatype.number({ min: 1, max: 5, precision: 1 })
@@ -262,8 +244,8 @@ export default class MainSeeder extends BaseSeeder {
         let totalPrice = 0
         for (let j = 0; j < randomfoodCount; j++) {
           const randomBurgerId = faker.datatype.number({ min: 1, max: 12, precision: 1 })
-          const food = await Food.findBy('id', randomBurgerId)
-          totalPrice += food!!.price
+          const food = burgerKing.restaurantFoods[randomBurgerId]
+          totalPrice += food.price
           await order.related('orderFoods').attach([randomBurgerId])
         }
 
@@ -285,9 +267,9 @@ export default class MainSeeder extends BaseSeeder {
 
         let totalPrice = 0
         for (let j = 0; j < randomfoodCount; j++) {
-          const randomMcId = faker.datatype.number({ min: 13, max: 24, precision: 1 })
-          const food = await Food.findBy('id', randomMcId)
-          totalPrice += food!!.price
+          const randomMcId = faker.datatype.number({ min: 1, max: 12, precision: 1 })
+          const food = mcDonalds.restaurantFoods[randomMcId]
+          totalPrice += food.price
           await order.related('orderFoods').attach([randomMcId])
         }
 
@@ -296,6 +278,9 @@ export default class MainSeeder extends BaseSeeder {
         await order.save()
         await order.refresh()
       }
+
+      await user.save()
+      await user.refresh()
     } catch (error) {
       console.warn(error.message)
       console.warn(error.stack)
