@@ -1,0 +1,21 @@
+/login:
+ post:
+   tags:
+     - auth 
+   description: Log In
+   requestBody:
+    content:
+      'application/json':
+        schema:
+          required: [email, password]
+          type: object
+          properties:
+            email:
+              type: string
+              example: 'serverigaram@gmail.com'
+            password:
+              type: string
+              example: 'remidosol4434'
+   responses:
+     200:
+      description: Logging in is successful.

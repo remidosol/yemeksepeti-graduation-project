@@ -1,0 +1,32 @@
+/restaurants/store:
+ post:
+  security:
+    - bearerAuth: []
+  tags:
+    - restaurants
+  description: Store a restaurant
+  requestBody:
+    content:
+      'multipart/form-data':
+        encoding: # The same level as schema
+          logoUrl: # Property name (see above)
+            contentType: image/png, image/jpeg, image/jpg
+        schema:
+          required: [name, category, logoUrl]
+          type: object
+          properties:
+            name:
+              type: string
+              example: 'Burger King'
+            category:
+              type: string
+              example: 'Burger & Steak'
+            description:
+              type: string
+              example: 'The Best'
+            logoUrl:
+              type: string
+              format: binary
+  responses:
+    200:
+      description: Restaurant has been stored.

@@ -1,0 +1,20 @@
+/users/delete/{user_id}:
+ delete:
+  security:
+    - bearerAuth: []
+  tags:
+    - users
+  description: Delete a user
+  parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: number
+        properties:
+          user_id:
+            type: number
+            example: 5
+  responses:
+    200:
+      description: User has been deleted.

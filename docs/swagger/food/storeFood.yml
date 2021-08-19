@@ -1,0 +1,32 @@
+/foods/store:
+ post:
+  security:
+    - bearerAuth: []
+  tags:
+    - foods 
+  description: Store a food
+  requestBody:
+    content:
+      'multipart/form-data':
+        encoding: # The same level as schema
+          imageUrl: # Property name (see above)
+            contentType: image/png, image/jpeg, image/jpg
+        schema:
+          required: [name, price, imageUrl]
+          type: object
+          properties:
+            restaurantId:
+              type: number
+              example: 5
+            name:
+              type: string
+              example: 'Burger'
+            price:
+              type: number
+              example: 25.5
+            imageUrl:
+              type: string
+              format: binary
+  responses:
+    200:
+      description: Food has been stored.

@@ -1,0 +1,10 @@
+/logout:
+  get:
+    security:
+      - bearerAuth: []
+    tags:
+      - auth 
+    description: Log Out
+    responses:
+      200:
+        description: Logging out is successful

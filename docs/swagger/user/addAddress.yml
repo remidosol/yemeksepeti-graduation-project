@@ -1,0 +1,48 @@
+/users/address/{user_id}:
+ post:
+  security:
+    - bearerAuth: []
+  tags:
+    - users
+  description: Add address to user
+  parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: number
+        properties:
+          user_id:
+            type: number
+            example: 5
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          required: [country, city, district, neighborhood, street]
+          type: object
+          properties:
+            country:
+              type: string
+              example: 'Turkey'
+            city:
+              type: string
+              example: 'Samsun'
+            district:
+              type: string
+              example: 'Ilkadım'
+            neighborhood:
+              type: string
+              example: '19 Mayis'
+            street:
+              type: string
+              example: 'Meşrutyet Sokak'
+            latitude:
+              type: number
+              example: 41.2879181
+            longitude:
+              type: number
+              example: 36.3361984
+  responses:
+    200:
+      description: Address has been added to user.

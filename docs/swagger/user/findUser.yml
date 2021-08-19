@@ -1,0 +1,19 @@
+
+/users/{user_id}:
+ get:
+  tags:
+    - users
+  description: Find a user
+  parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: number
+        properties:
+          user_id:
+            type: number
+            example: 5
+  responses:
+    200:
+      description: User has been found.

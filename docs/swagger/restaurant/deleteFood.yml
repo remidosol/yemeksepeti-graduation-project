@@ -1,0 +1,20 @@
+/restaurants/foods/{food_id}:
+ delete:
+  security:
+    - bearerAuth: []
+  tags:
+    - restaurants
+  description: Delete a food
+  parameters:
+    - name: food_id
+      in: path
+      required: true
+      schema:
+        type: number
+        properties:
+          food_id:
+            type: number
+            example: 5
+  responses:
+    200:
+      description: Food has been deleted.

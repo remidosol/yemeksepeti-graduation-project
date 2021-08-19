@@ -1,0 +1,46 @@
+/orders/update/{order_id}:
+ post:
+  security:
+    - bearerAuth: []
+  tags:
+    - orders
+  description: Update a order
+  parameters:
+    - name: order_id
+      in: path
+      required: true
+      schema:
+        type: number
+        properties:
+          order_id:
+            type: number
+            example: 5
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          type: object
+          properties:
+            restaurantId:
+              type: number
+              example: 5
+            userId:
+              type: number
+              example: 3
+            total:
+              type: number
+              example: 3.50
+            orderNote:
+              type: string
+              example: 'Please bring the order hot'
+            orderPaymentMethod:
+              type: string
+              enum:
+                - CREDIT_CARD
+                - CASH
+                - COUPON
+                - WALLET
+              example: CREDIT_CARD
+  responses:
+    200:
+      description: Order has been updated.

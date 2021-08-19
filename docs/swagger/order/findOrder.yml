@@ -1,0 +1,19 @@
+
+/orders/{order_id}:
+ get:
+  tags:
+    - orders
+  description: Find a order
+  parameters:
+    - name: order_id
+      in: path
+      required: true
+      schema:
+        type: number
+        properties:
+          order_id:
+            type: number
+            example: 5
+  responses:
+    200:
+      description: Order has been found.

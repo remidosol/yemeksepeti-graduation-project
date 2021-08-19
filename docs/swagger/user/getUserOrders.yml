@@ -1,0 +1,11 @@
+
+/users/orders:
+ post:
+  security:
+   - bearerAuth: []
+  tags:
+   - users
+  description: Fetch logged in user's orders
+  responses:
+   200:
+    description: User's orders have been found.

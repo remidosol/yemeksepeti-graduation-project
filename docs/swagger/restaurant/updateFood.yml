@@ -1,0 +1,38 @@
+/restaurants/foods/{food_id}:
+ put:
+  security:
+    - bearerAuth: []
+  tags:
+    - restaurants 
+  description: Update a food
+  parameters:
+    - name: food_id
+      in: path
+      required: true
+      schema:
+        type: number
+        properties:
+          food_id:
+            type: number
+            example: 5
+  requestBody:
+    content:
+      'multipart/form-data':
+        encoding: # The same level as schema
+          imageUrl: # Property name (see above)
+            contentType: image/png, image/jpeg, image/jpg
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: 'Burger'
+            price:
+              type: number
+              example: 25.5
+            imageUrl:
+              type: string
+              format: binary
+  responses:
+    200:
+      description: Food has been updated.
