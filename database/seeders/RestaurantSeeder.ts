@@ -35,7 +35,7 @@ export default class RestaurantSeeder extends BaseSeeder {
     try {
       for (let i = 0; i < 10; i++) {
         faker.locale = 'it'
-        const randCat = faker.datatype.number({ min: 0, max: 9, precision: 1 })
+        const randCat = faker.datatype.number({ min: 0, max: 8, precision: 1 })
         const randRes = faker.datatype.number({ min: 0, max: 2, precision: 1 })
 
         const restaurant = await Restaurant.create({
