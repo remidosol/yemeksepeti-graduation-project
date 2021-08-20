@@ -26,6 +26,10 @@ import {
  *          type: string
  *        description:
  *          type: string
+ *        rating:
+ *          type: number
+ *        arrivalTime:
+ *          type: number
  *      required:
  *        - name
  *
@@ -39,6 +43,12 @@ export default class Restaurant extends BaseModel {
 
   @column({ serializeAs: 'category' })
   public category: string
+
+  @column({ serializeAs: 'rating' })
+  public rating: number
+
+  @column({ serializeAs: 'arrivalTime' })
+  public arrivalTime: number
 
   @column({ serializeAs: 'logoUrl' })
   public logoUrl: string

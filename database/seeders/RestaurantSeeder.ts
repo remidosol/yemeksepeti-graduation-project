@@ -28,7 +28,9 @@ const categories = [
   'Food Trucks and Concession Stands',
 ]
 
-const resolution = ['300x300', '400x400', '500x500']
+const resolution: string[] = ['300x300', '400x400', '500x500']
+
+const arrivals: number[] = [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75]
 
 export default class RestaurantSeeder extends BaseSeeder {
   public async run() {
@@ -43,6 +45,8 @@ export default class RestaurantSeeder extends BaseSeeder {
           name: faker.company.companyName(),
           logoUrl: logoLinks[i],
           description: faker.company.catchPhraseDescriptor(),
+          rating: faker.datatype.float({ min: 1.0, max: 10.0, precision: 2 }),
+          arrivalTime: arrivals[faker.datatype.number({ min: 0, max: 13, precision: 1 })],
         })
 
         for (let j = 0; j < 10; j++) {
@@ -50,7 +54,7 @@ export default class RestaurantSeeder extends BaseSeeder {
             name: faker.company.catchPhraseNoun(),
             imageUrl: `https://source.unsplash.com/${resolution[randRes]}/?food`,
             description: faker.commerce.productDescription(),
-            price: faker.datatype.float({ min: 7.5, max: 69.99, precision: 1 }),
+            price: faker.datatype.float({ min: 7.5, max: 69.99, precision: 2 }),
           })
         }
 

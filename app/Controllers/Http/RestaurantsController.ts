@@ -22,10 +22,7 @@ export default class RestaurantsController {
       const restaurantsJSON = JSON.parse(JSON.stringify(restaurants))
 
       for (let restaurant of restaurantsJSON.data) {
-        if (
-          !restaurant.logoUrl.startsWith('http://') ||
-          !restaurant.logoUrl.startsWith('https://')
-        ) {
+        if (!restaurant.logoUrl.startsWith('http')) {
           restaurant.logoUrl = 'http://' + restaurant.logoUrl
         }
       }
@@ -61,10 +58,7 @@ export default class RestaurantsController {
 
       const restaurantJSON = restaurant.toJSON()
 
-      if (
-        !restaurantJSON.logoUrl.startsWith('http://') ||
-        !restaurantJSON.logoUrl.startsWith('https://')
-      ) {
+      if (!restaurantJSON.logoUrl.startsWith('http')) {
         restaurantJSON.logoUrl = 'http://' + restaurantJSON.logoUrl
       }
 
@@ -107,10 +101,7 @@ export default class RestaurantsController {
 
       const restaurantJSON = restaurant.toJSON()
 
-      if (
-        !restaurantJSON.logoUrl.startsWith('http://') ||
-        !restaurantJSON.logoUrl.startsWith('https://')
-      ) {
+      if (!restaurantJSON.logoUrl.startsWith('http')) {
         restaurantJSON.logoUrl = 'http://' + restaurantJSON.logoUrl
       }
 
@@ -185,9 +176,9 @@ export default class RestaurantsController {
 
       const foodJSON = food.toJSON()
 
-      if (!foodJSON.imageUrl.startsWith('http://') || !foodJSON.imageUrl.startsWith('https://')) {
-        foodJSON.imageUrl = 'http://' + foodJSON.imageUrl
-      }
+      // if (!foodJSON.imageUrl.startsWith('http://') || !foodJSON.imageUrl.startsWith('https://')) {
+      //   foodJSON.imageUrl = 'http://' + foodJSON.imageUrl
+      // }
 
       return response.status(200).json({
         message: 'Food has been found.',
@@ -231,7 +222,7 @@ export default class RestaurantsController {
 
       const foodJSON = food.toJSON()
 
-      if (!foodJSON.imageUrl.startsWith('http://') || !foodJSON.imageUrl.startsWith('https://')) {
+      if (!foodJSON.imageUrl.startsWith('http')) {
         foodJSON.imageUrl = 'http://' + foodJSON.imageUrl
       }
 

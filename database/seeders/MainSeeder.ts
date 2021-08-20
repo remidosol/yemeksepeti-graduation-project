@@ -3,7 +3,6 @@ import User from 'App/Models/User'
 import Restaurant from 'App/Models/Restaurant'
 import { PaymentMethods } from 'App/Models/Order'
 import faker from 'faker'
-import Food from 'App/Models/Food'
 
 export default class MainSeeder extends BaseSeeder {
   public async run() {
@@ -32,6 +31,8 @@ export default class MainSeeder extends BaseSeeder {
         category: 'Burger',
         logoUrl: 'https://logowik.com/content/uploads/images/burger-king-new-20218389.jpg',
         description: 'Have It Your Way',
+        arrivalTime: 45,
+        rating: 9.5,
       })
 
       await burgerKing.related('restaurantFoods').createMany([
@@ -130,6 +131,8 @@ export default class MainSeeder extends BaseSeeder {
         category: 'Burger',
         logoUrl:
           'https://turbologo.com/articles/wp-content/uploads/2019/07/mcdonalds-the-m-logo-1968.jpg',
+        arrivalTime: 30,
+        rating: 8.9,
       })
 
       await mcDonalds.related('restaurantFoods').createMany([
@@ -245,7 +248,7 @@ export default class MainSeeder extends BaseSeeder {
         for (let j = 0; j < randomfoodCount; j++) {
           const randomBurgerId = faker.datatype.number({ min: 0, max: 11, precision: 1 })
           const food = burgerKing.restaurantFoods[randomBurgerId]
-          totalPrice += food.price
+          totalPrice += parseFloat(food.price.toFixed(2))
           await order.related('orderFoods').attach([randomBurgerId])
         }
 
@@ -269,7 +272,7 @@ export default class MainSeeder extends BaseSeeder {
         for (let j = 0; j < randomfoodCount; j++) {
           const randomMcId = faker.datatype.number({ min: 0, max: 11, precision: 1 })
           const food = mcDonalds.restaurantFoods[randomMcId]
-          totalPrice += food.price
+          totalPrice += parseFloat(food.price.toFixed(2))
           await order.related('orderFoods').attach([randomMcId])
         }
 

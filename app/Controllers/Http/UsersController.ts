@@ -22,10 +22,7 @@ export default class UsersController {
       const usersJSON = JSON.parse(JSON.stringify(users))
 
       for (let user of usersJSON.data) {
-        if (
-          !user.profile.avatarUrl.startsWith('http://') ||
-          !user.profile.avatarUrl.startsWith('https://')
-        ) {
+        if (!user.profile.avatarUrl.startsWith('http')) {
           user.profile.avatarUrl = 'http://' + user.profile.avatarUrl
         }
       }
@@ -62,10 +59,7 @@ export default class UsersController {
 
       const userJSON = user?.toJSON()
 
-      if (
-        (user?.profile !== null && !user?.profile.avatarUrl.startsWith('http://')) ||
-        !user?.profile.avatarUrl.startsWith('https://')
-      ) {
+      if (user?.profile !== null && !user?.profile.avatarUrl.startsWith('http')) {
         userJSON!.profile.avatarUrl = 'http://' + userJSON?.profile.avatarUrl
       }
 
@@ -165,10 +159,7 @@ export default class UsersController {
 
       const userJSON = user.toJSON()
 
-      if (
-        !userJSON.profile.avatarUrl.startsWith('http://') ||
-        !userJSON.profile.avatarUrl.startsWith('https://')
-      ) {
+      if (!userJSON.profile.avatarUrl.startsWith('http')) {
         userJSON.profile.avatarUrl = 'http://' + userJSON.profile.avatarUrl
       }
 
