@@ -299,17 +299,18 @@ export default class UsersController {
         ? profileData.mobileNumber
         : user.profile.mobileNumber
 
+      await user.profile.save()
       await user.save()
       await user.refresh()
 
-      await user.related('profile').updateOrCreate(
-        {
-          userId: user.id,
-        },
-        {
-          ...user.profile,
-        }
-      )
+      // await user.related('profile').updateOrCreate(
+      //   {
+      //     userId: user.id,
+      //   },
+      //   {
+      //     ...user.profile,
+      //   }
+      // )
 
       await user.save()
       await user.refresh()
