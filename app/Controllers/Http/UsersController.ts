@@ -283,7 +283,7 @@ export default class UsersController {
       if (avatarFile && !user.profile.avatarUrl.startsWith('http')) {
         await S3.deleteFromBucket('users', user.profile.avatarUrl.split('/')[2])
         const avatarUrl = await S3.uploadToBucket(avatarFile!, 'users')
-        user.profile.avatarUrl = avatarUrl?.url ? avatarUrl.url : user.profile.avatarUrl
+        user.profile.avatarUrl = avatarUrl!.url //? avatarUrl.url : user.profile.avatarUrl
       }
 
       user.email = userData.email ? userData.email : user.email
@@ -303,17 +303,7 @@ export default class UsersController {
       await user.save()
       await user.refresh()
 
-      // await user.related('profile').updateOrCreate(
-      //   {
-      //     userId: user.id,
-      //   },
-      //   {
-      //     ...user.profile,
-      //   }
-      // )
-
-      await user.save()
-      await user.refresh()
+      await user.load('profile')
 
       return response.status(200).json({
         message: 'User has been updated.',
