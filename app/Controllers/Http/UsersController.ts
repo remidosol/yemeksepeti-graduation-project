@@ -280,12 +280,6 @@ export default class UsersController {
 
       const avatarFile = request.file('avatarUrl')
 
-      if (avatarFile && !user.profile.avatarUrl.startsWith('http')) {
-        await S3.deleteFromBucket('users', user.profile.avatarUrl.split('/')[2])
-        const avatarUrl = await S3.uploadToBucket(avatarFile!, 'users')
-        user.profile.avatarUrl = avatarUrl!.url //? avatarUrl.url : user.profile.avatarUrl
-      }
-
       user.email = userData.email ? userData.email : user.email
       user.password = userData.password ? userData.password : user.password
 
@@ -298,6 +292,15 @@ export default class UsersController {
       user.profile.mobileNumber = profileData.mobileNumber
         ? profileData.mobileNumber
         : user.profile.mobileNumber
+
+      if (avatarFile && !user.profile.avatarUrl.startsWith('http')) {
+        await S3.deleteFromBucket('users', user.profile.avatarUrl.split('/')[2])
+        const avatarUrl = await S3.uploadToBucket(avatarFile!, 'users')
+        user.profile.avatarUrl = avatarUrl!.url //? avatarUrl.url : user.profile.avatarUrl
+      } else {
+        const avatarUrl = await S3.uploadToBucket(avatarFile!, 'users')
+        user.profile.avatarUrl = avatarUrl!.url //? avatarUrl.url : user.profile.avatarUrl
+      }
 
       await user.profile.save()
       await user.save()
