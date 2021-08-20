@@ -308,9 +308,15 @@ export default class UsersController {
 
       await user.load('profile')
 
+      let userJSON = user.toJSON()
+
+      if (!user?.profile.avatarUrl.startsWith('http')) {
+        userJSON!.profile.avatarUrl = 'http://' + userJSON?.profile.avatarUrl
+      }
+
       return response.status(200).json({
         message: 'User has been updated.',
-        data: user.toJSON(),
+        data: userJSON,
       })
     } catch (error) {
       console.warn(error.message)
