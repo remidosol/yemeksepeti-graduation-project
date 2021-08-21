@@ -62,6 +62,12 @@ export default class RestaurantsController {
         restaurantJSON.logoUrl = 'http://' + restaurantJSON.logoUrl
       }
 
+      for (let food of restaurantJSON.restaurantFoods) {
+        if (!food.imageUrl.startsWith('http')) {
+          food.imageUrl = 'http://' + food.imageUrl
+        }
+      }
+
       return response.status(200).json({
         message: 'Restaurant has been found.',
         data: restaurant.toJSON(),
@@ -176,9 +182,9 @@ export default class RestaurantsController {
 
       const foodJSON = food.toJSON()
 
-      // if (!foodJSON.imageUrl.startsWith('http://') || !foodJSON.imageUrl.startsWith('https://')) {
-      //   foodJSON.imageUrl = 'http://' + foodJSON.imageUrl
-      // }
+      if (!foodJSON.imageUrl.startsWith('http')) {
+        foodJSON.imageUrl = 'http://' + foodJSON.imageUrl
+      }
 
       return response.status(200).json({
         message: 'Food has been found.',
