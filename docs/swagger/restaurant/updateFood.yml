@@ -30,6 +30,9 @@
             price:
               type: number
               example: 25.5
+            description:
+              type: string
+              example: 'The Best'
             imageUrl:
               type: string
               format: binary

@@ -90,7 +90,13 @@ export default class RestaurantsController {
    */
   public async store({ request, response }: HttpContextContract) {
     try {
-      const receivedData = request.only(['name', 'category'])
+      const receivedData = request.only([
+        'name',
+        'category',
+        'description',
+        'rating',
+        'arrivalTime',
+      ])
 
       const logoFile = request.file('logoUrl')
 
@@ -100,6 +106,9 @@ export default class RestaurantsController {
         name: receivedData.name,
         category: receivedData.category,
         logoUrl: logoUrl?.url,
+        description: receivedData.description,
+        arrivalTime: receivedData.arrivalTime,
+        rating: receivedData.rating,
       })
 
       await restaurant.save()
@@ -299,7 +308,7 @@ export default class RestaurantsController {
     try {
       const restaurantId = params.restaurant_id
 
-      const receivedData = request.only(['name', 'category'])
+      const receivedData = request.only(['name', 'category', 'rating', 'arrivalTime'])
 
       const restaurant = await Restaurant.findByOrFail('id', restaurantId)
 
@@ -312,6 +321,11 @@ export default class RestaurantsController {
 
       restaurant.name = receivedData.name ? receivedData.name : restaurant.name
       restaurant.category = receivedData.category ? receivedData.category : restaurant.category
+
+      restaurant.rating = receivedData.rating ? receivedData.rating : restaurant.rating
+      restaurant.arrivalTime = receivedData.arrivalTime
+        ? receivedData.arrivalTime
+        : restaurant.arrivalTime
 
       await restaurant.save()
       await restaurant.refresh()

@@ -30,6 +30,15 @@
             category:
               type: string
               example: 'Burger & Steak'
+            description:
+              type: string
+              example: 'The Best'
+            rating:
+              type: number
+              example: 4.6
+            arrivalTime:
+              type: number
+              example: 15
             logoUrl:
               type: string
               format: binary

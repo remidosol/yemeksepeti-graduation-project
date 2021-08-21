@@ -32,6 +32,10 @@ import {
  *          type: number
  *      required:
  *        - name
+ *        - category
+ *        - description
+ *        - rating
+ *        - arrivalTime
  *
  */
 export default class Restaurant extends BaseModel {

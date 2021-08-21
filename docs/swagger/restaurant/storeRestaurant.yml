@@ -12,7 +12,7 @@
           logoUrl: # Property name (see above)
             contentType: image/png, image/jpeg, image/jpg
         schema:
-          required: [name, category, logoUrl]
+          required: [name, category, logoUrl, description, rating, arrivalTime]
           type: object
           properties:
             name:
@@ -24,6 +24,12 @@
             description:
               type: string
               example: 'The Best'
+            rating:
+              type: number
+              example: 4.6
+            arrivalTime:
+              type: number
+              example: 15
             logoUrl:
               type: string
               format: binary
